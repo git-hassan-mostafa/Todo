@@ -1,0 +1,17 @@
+# .gitignore
+bin/
+obj/
+*.user
+*.suo
+*.vscode/
+.vs/
+*.dbmdl
+*.jfm
+*.sln.docstates
+project.lock.json
+artifacts/
+*.nuget.props
+*.nuget.targets
+*.userprefs
+node_modules/
+Migrations/

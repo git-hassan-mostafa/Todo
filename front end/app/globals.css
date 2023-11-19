@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --dark:#212121 ;
+  --login-background : transparent linear-gradient(180deg, #8556A4 0%, #2D2B52 100%) 0% 0% no-repeat padding-box;
+  --unnamed-color-2f63f2: #2F63F2;
+--unnamed-color-212529: #212529;
+--unnamed-color-b6a3c2: #B6A3C2;
+--unnamed-color-707070: #707070;
+--unnamed-color-ffffff: #FFFFFF;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: #5B5E60 0% 0% no-repeat padding-box;
+  padding-bottom: 100px;
+}
+
+html{
+  scroll-behavior: smooth;
+
+}

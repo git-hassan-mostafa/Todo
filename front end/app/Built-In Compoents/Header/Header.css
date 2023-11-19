@@ -1,0 +1,31 @@
+.__header__ {
+    box-sizing: border-box;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* gap: 20px; */
+}
+
+.__header-ltr__ {
+    flex-direction: initial;
+}
+
+.__header-rtl__ {
+    flex-direction: row-reverse;
+}
+
+.__header-icon-bar__{
+    display: flex;
+    align-items: center;
+}
+
+.__header-navigation-bar__ {
+    display: flex;
+    align-items: center;
+}
+
+.__header-features-bar__ {
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,27 @@
+.todos {
+    width: 25%;
+    z-index: 5;
+}
+
+.status-name-without-quote{
+    position: sticky;
+    top: 91px;
+}
+
+.status-name-with-quote{
+    position: sticky;
+    top: 161px;
+}
+
+.status-name {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: var(--unnamed-color-212529) 0% 0% no-repeat padding-box;
+    background: #212529 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 4px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    
+}
