@@ -9,42 +9,16 @@ import { useUser } from '../context'
 export default function Header() {
 
 
-  const { setShowAddTodo, setShowUser, showAddTodo, setIsTodosLoading, setSearchTodos , search , setSearch } = useUser()
-  const [IsfirstRender, setIsFirstRender] = useState(true)
-  const [debouncedSearchValue, setDebouncedSearchValue] = React.useState<string | null>("");
-
-  const router = useRouter()
+  const { setShowAddTodo, setShowUser,search , setSearch } = useUser()
 
   const handleShowAddTodo = () => {
-    if (!showAddTodo) router.replace('/#add-todo')
-    setShowAddTodo(prev => !prev)
+     setShowAddTodo(prev => !prev)
   }
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value)
   }
 
-  // useEffect(() => {
-  //   if (IsfirstRender) {
-  //     setIsFirstRender(false)
-  //     return
-  //   }
-  //   const timeoutId = setTimeout(() => {
-  //     (async function () {
-  //       setIsTodosLoading(true)
-  //       const res = await fetch(`${host}/Todo/search-todos?searchTerm=${search}`)
-  //       const data = await res.json();
-  //       if (res.ok)
-  //         if (data) {
-  //           console.log(data)
-  //           setSearchTodos(data)
-  //         }
-  //       setIsTodosLoading(false)
-  //     })()
-  //     setDebouncedSearchValue(search);
-  //   }, 1000);
-  //   return () => clearTimeout(timeoutId);
-  // }, [search, 1000]);
   return (
     <HeaderComponent
       className={s.header}

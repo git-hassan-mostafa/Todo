@@ -6,7 +6,7 @@ import { Todo, useUser } from '../context';
 
 export default function TodoCard() {
 
-    const {importances , setTodos} = useUser()
+  const { importances, setTodos } = useUser()
 
   const titleRef = useRef<HTMLInputElement>(null);
   const categoryRef = useRef<HTMLInputElement>(null);
@@ -16,15 +16,15 @@ export default function TodoCard() {
 
   const [dateError, setDateError] = useState<string | null>(null);
   const [titleError, setTitleError] = useState<string | null>(null);
-  const [isLoading , setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if(!titleRef.current?.value ) {
+    if (!titleRef.current?.value) {
       setTitleError("title is required")
       return
-    } 
+    }
 
     // Check date format before making the API call
     if (!validateDateFormat(dateRef.current?.value)) {
@@ -37,30 +37,37 @@ export default function TodoCard() {
 
     setIsLoading(true)
 
-    const newTodo:Todo =  {
+    const newTodo: Todo = {
       title: titleRef.current?.value as string,
       category: categoryRef.current?.value as string,
       dueDate: dateRef.current?.value as string,
       estimate: estimateRef.current?.value as string,
-      importanceID: parseInt(importanceRef.current?.value as string) ,
-      statusID:1,
-      userID:1
+      importanceID: parseInt(importanceRef.current?.value as string),
+      statusID: 1,
+      userID: 1
     }
 
-    const res = await fetchData<any>(`${host}/Todo`,newTodo, 'POST');
+    const res = await fetchData<any>(`${host}/Todo`, newTodo, 'POST');
     setIsLoading(false)
 
-    newTodo.id 
+    newTodo.id
     if (res) {
-      setTodos(prev=>[newTodo , ...prev as Todo[]] as Todo[])
+      setTodos(prev => [newTodo, ...prev as Todo[]] as Todo[])
+      if (titleRef.current && categoryRef.current && dateRef.current && estimateRef.current && importanceRef.current) {
+        titleRef.current.value = ""
+        categoryRef.current.value = ""
+        dateRef.current.value = ""
+        estimateRef.current.value = ""
+        importanceRef.current?.value
+      }
     };
   };
 
 
   return (
     <form onSubmit={handleFormSubmit} className={s.todo}>
-       <input placeholder='Title' ref={titleRef} className={s.title} />
-       {titleError && <div className={s.error}>{titleError}</div>}
+      <input placeholder='Title' ref={titleRef} className={s.title} />
+      {titleError && <div className={s.error}>{titleError}</div>}
       <table className={s.table}>
         <tbody className={s.tbody}>
           <tr className={s.tr}>
@@ -97,7 +104,7 @@ export default function TodoCard() {
           </tr>
         </tbody>
       </table>
-      <button disabled={isLoading} className={s.submit} type='submit'> { isLoading ? 'Loading...' :'Submit'} </button>
+      <button disabled={isLoading} className={s.submit} type='submit'> {isLoading ? 'Loading...' : 'Submit'} </button>
     </form>
   );
 }

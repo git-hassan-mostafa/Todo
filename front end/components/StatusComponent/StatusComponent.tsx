@@ -53,9 +53,11 @@ export default function StatusComponent({ status }: { status: StatusImportance }
                         <TodoCard key={todo.id} todo={todo} />
                     ))
                 }
-                {status.id === 1 && showAddTodo && <div id='add-todo'>
+                {status.id === 1 && showAddTodo &&
+                 <div id='add-todo'>
                     <TodoCardAdd />
-                </div>}
+                </div>
+                }
             </Flex>
         </div>
     )

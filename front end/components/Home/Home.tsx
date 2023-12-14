@@ -15,7 +15,7 @@ export default function Home() {
 
 
     return (
-        <main>
+        <main className={s.main}>
             <Header  />    
             { showQuote && <Quote /> }
             { showUser && <UserCard  />}

@@ -15,7 +15,6 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: #5B5E60 0% 0% no-repeat padding-box;
-  padding-bottom: 100px;
 }
 
 html{

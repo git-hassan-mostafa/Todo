@@ -6,6 +6,10 @@
     
 }
 
+main.main{
+    padding-bottom: 100px;
+}
+
 .loading{
     font-size: 30px;
     text-align: center;
